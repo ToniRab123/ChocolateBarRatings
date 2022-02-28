@@ -12,3 +12,18 @@ foodPreferences[1,]
 ###getting the value from cells in 100 row and column 4
 foodPreferences[100,4]
 ##                    Removing unwanted data 
+###column 5 has alot of values in data set that are not numbers
+foodPreferences[-5]
+##Data cleaning
+str(chocolateData)
+###print the first few values from the column named Rating in the datafram
+head(chocolateData$Rating)
+chocolateData <- type.convert(chocolateData)
+chocolateData <- type_convert(chocolateData)
+chocolateData <-type.convert(chocolateData)
+###remove all the percents signs so data can be read
+chocolateData$Cocoa_Percent <- sapply(chocolateData$Cocoa_Percent, function(x) gsub("%", "", x))
+chocolateData$`Cocoa
+Percent` <- sapply(chocolateData$Cocoa_Percent, function(x) gsub("%","",x)) 
+
+chocolateData <- type.convert(chocolateData)
