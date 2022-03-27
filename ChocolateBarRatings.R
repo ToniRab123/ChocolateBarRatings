@@ -34,5 +34,14 @@ library(stringr)
 choc<- chocolateData %>% #this is where i reference the data and point it to new dataframe
   rename_with( ~str_remove(., "\n"), everything()) %>% #renamed with string remove and removed the line break \n
   mutate(CocoaPercent1=str_remove(CocoaPercent, "%")) #added a new column and named it CocoaPercent 1 and remove the % sign
-
- 
+#Data Cleaning-removing the blank white spaces in the dataset 
+library(tidyverse)
+choc
+names(choc) <- gsub("[[:space:]+]", "_", names(choc))
+str(choc) #check the data type of the columns in the chococlateData
+### return a data frame with the mean and sd of the rating column from chocolate dataset
+choc %>% 
+  summarise(averageRating = mean(Rating),
+            sdRating = sd(Rating),)
+   
+  
